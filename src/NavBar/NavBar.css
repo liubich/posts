@@ -1,0 +1,7 @@
+.navbar__links {
+  display: flex;
+}
+
+.navbar__link {
+  padding-right: 30px;
+}
