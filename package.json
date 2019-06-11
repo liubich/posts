@@ -4,17 +4,27 @@
   "description": "The template project for [nano-react-app](https://github.com/adrianmcli/nano-react-app).",
   "scripts": {
     "start": "parcel index.html",
-    "build": "parcel build index.html"
+    "build": "parcel build index.html",
+    "lint:js": "eslint src/**/*.js",
+    "lint:css": "stylelint src/**/*.css"
   },
   "license": "MIT",
   "dependencies": {
+    "babel-eslint": "^10.0.1",
     "react": "^16.8.1",
-    "react-dom": "^16.8.1"
+    "react-dom": "^16.8.1",
+    "react-redux": "^7.0.3",
+    "redux": "^4.0.1",
+    "redux-thunk": "^2.3.0"
   },
   "devDependencies": {
     "@babel/core": "^7.2.2",
     "babel-preset-nano-react-app": "^0.1.0",
-    "parcel-bundler": "^1.11.0"
+    "eslint": "^5.16.0",
+    "eslint-plugin-react": "^7.13.0",
+    "parcel-bundler": "^1.11.0",
+    "stylelint": "^10.1.0",
+    "stylelint-config-standard": "^18.3.0"
   },
   "babel": {
     "presets": [
