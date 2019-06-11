@@ -1,8 +1,18 @@
-import React from "react";
+import React from 'react';
+import { Route, BrowserRouter as Router } from 'react-router-dom';
+import { connect } from 'react-redux';
+import MainPage from './MainPage/MainPage';
+import Authors from './Authors/Authors';
+import Posts from './Posts/Posts';
 
-export default () => (
-  <>
-    <h1>Welcome to React Parcel Micro App!</h1>
-    <p>Hard to get more minimal than this React app.</p>
-  </>
-);
+const App = () => {
+  return (
+    <Router>
+      <Route path="/" exact component={MainPage} />
+      <Route path="/authors" component={Authors} />
+      <Route path="/posts" component={Posts} />
+    </Router>
+  );
+};
+
+export default connect()(App);
