@@ -13,8 +13,8 @@ const NavBar = () => {
           </Link>
         </li>
         <li className="nav-item p-2">
-          <Link to="/authors" className="nav-link">
-            Authors
+          <Link to="/users" className="nav-link">
+            Users
           </Link>
         </li>
         <li className="nav-item p-2">
