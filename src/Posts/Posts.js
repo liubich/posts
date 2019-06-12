@@ -12,7 +12,13 @@ const Posts = props => {
     <>
       <NavBar />
       {props.postsData
-        ? props.postsData.map((item, index) => <p key={index}>{item.title}</p>)
+        ? props.postsData.map((item, index) => (
+            <div className="jumbotron" key={index}>
+              <h1 className="display-5">{item.title}</h1>
+              <hr className="my-4" />
+              <p className="lead">{item.body}</p>
+            </div>
+          ))
         : null}
     </>
   );
