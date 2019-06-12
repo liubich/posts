@@ -6,15 +6,21 @@ import './NavBar.css';
 const NavBar = () => {
   return (
     <nav className="navbar">
-      <ul className="navbar__links">
-        <li className="navbar__link">
-          <Link to="/">Main</Link>
+      <ul className="navbar-nav d-flex flex-row">
+        <li className="nav-item p-2">
+          <Link to="/" className="nav-link">
+            Main
+          </Link>
         </li>
-        <li className="navbar__link">
-          <Link to="/authors">Authors</Link>
+        <li className="nav-item p-2">
+          <Link to="/authors" className="nav-link">
+            Authors
+          </Link>
         </li>
-        <li className="navbar__link">
-          <Link to="/posts">Posts</Link>
+        <li className="nav-item p-2">
+          <Link to="/posts" className="nav-link">
+            Posts
+          </Link>
         </li>
       </ul>
     </nav>
