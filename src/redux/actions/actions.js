@@ -5,8 +5,10 @@ export function GetPosts() {
     fetch('https://jsonplaceholder.typicode.com/posts')
       .then(response => response.json())
       .then(json => {
-        console.log(json);
-        dispatch({ type: actionTypes.SAVE_POSTS, postsData: json });
+        dispatch({
+          type: actionTypes.SAVE_POSTS,
+          postsData: json.slice(-10).sort((a, b) => a.id < b.id),
+        });
       });
   };
 }
