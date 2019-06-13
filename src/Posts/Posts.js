@@ -2,7 +2,6 @@ import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import * as actions from '../redux/actions/actions';
-import NavBar from '../NavBar/NavBar';
 
 const Posts = props => {
   useEffect(() => {
@@ -10,7 +9,6 @@ const Posts = props => {
   });
   return (
     <>
-      <NavBar />
       {props.postsData
         ? props.postsData.map((item, index) => (
             <div className="jumbotron" key={index}>

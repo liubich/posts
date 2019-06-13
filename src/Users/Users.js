@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
-import NavBar from '../NavBar/NavBar';
 import PropTypes from 'prop-types';
 import * as actions from '../redux/actions/actions';
 
@@ -10,7 +9,6 @@ const Users = props => {
   });
   return (
     <>
-      <NavBar />
       {props.usersData
         ? props.usersData.map((item, index) => (
             <div className="jumbotron" key={index}>
