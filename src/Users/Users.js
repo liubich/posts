@@ -11,10 +11,16 @@ const Users = props => {
     <>
       {props.usersData
         ? props.usersData.map((item, index) => (
-            <div className="jumbotron" key={index}>
-              <h1 className="display-5">{item.username}</h1>
-              <hr className="my-4" />
-              <p className="lead">{item.name}</p>
+            <div className="card mb-3" key={index}>
+              <h3 className="card-header">
+                {item.name}{' '}
+                <span className="text-muted">aka {item.username}</span>
+              </h3>
+              <div className="card-body">
+                <h5 className="card-title">{item.phone}</h5>
+                {/* <hr className="my-4" /> */}
+                <h6 className="card-subtitle text-muted">{item.email}</h6>
+              </div>
             </div>
           ))
         : null}
