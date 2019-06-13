@@ -5,19 +5,19 @@ import './NavBar.css';
 
 const NavBar = () => {
   return (
-    <nav className="navbar">
-      <ul className="navbar-nav d-flex flex-row">
-        <li className="nav-item p-2">
+    <nav className="navbar navbar-expand-lg fixed-top navbar-dark bg-primary">
+      <ul className="navbar-nav mr-auto">
+        <li className="nav-item">
           <Link to="/" className="nav-link">
             Main
           </Link>
         </li>
-        <li className="nav-item p-2">
+        <li className="nav-item">
           <Link to="/users" className="nav-link">
             Users
           </Link>
         </li>
-        <li className="nav-item p-2">
+        <li className="nav-item">
           <Link to="/posts" className="nav-link">
             Posts
           </Link>
