@@ -15,6 +15,15 @@ const MainPage = props => {
               <h1 className="display-5">{item.title}</h1>
               <hr className="my-4" />
               <p className="lead">{item.body}</p>
+              <p className="lead">
+                <a
+                  className="btn btn-primary btn-lg"
+                  href={`/post/${item.id}`}
+                  role="button"
+                >
+                  Comments
+                </a>
+              </p>
             </div>
           ))
         : null}
