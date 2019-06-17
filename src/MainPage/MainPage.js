@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import * as actions from '../redux/actions/actions';
 
 const MainPage = props => {
@@ -19,6 +20,11 @@ const MainPage = props => {
         : null}
     </>
   );
+};
+
+MainPage.propTypes = {
+  postsData: PropTypes.array,
+  dispatch: PropTypes.func.isRequired,
 };
 
 const MapStateToProps = state => {
