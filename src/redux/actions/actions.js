@@ -18,8 +18,17 @@ export function GetUsers() {
     fetch('https://jsonplaceholder.typicode.com/users')
       .then(response => response.json())
       .then(json => {
-        console.log(json);
         dispatch({ type: actionTypes.SAVE_USERS, usersData: json });
+      });
+  };
+}
+
+export function GetComments(postId) {
+  return function(dispatch) {
+    fetch(`https://jsonplaceholder.typicode.com/posts/${postId}/comments`)
+      .then(response => response.json())
+      .then(json => {
+        dispatch({ type: actionTypes.SAVE_COMMENTS, commentsData: json });
       });
   };
 }
