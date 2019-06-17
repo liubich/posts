@@ -7,6 +7,7 @@ import UsersDetails from './UserDetails/UserDetails';
 import Posts from './Posts/Posts';
 import NavBar from './NavBar/NavBar';
 import PageNotFound from './PageNotFound/PageNotFound';
+import PostComments from './PostComments/PostComments';
 
 const App = () => {
   return (
@@ -18,6 +19,7 @@ const App = () => {
             <Route path="/" exact component={MainPage} />
             <Route path="/user/:userId" component={UsersDetails} />
             <Route path="/users" component={Users} />
+            <Route path="/post/:postId" component={PostComments} />
             <Route path="/posts" component={Posts} />
             <Route component={PageNotFound} />
           </Switch>
