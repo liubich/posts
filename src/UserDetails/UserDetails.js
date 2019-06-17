@@ -3,11 +3,11 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
 const UserDetails = props => {
-  return <h1>{props.userId}</h1>;
+  return <h1>{props.match.params.userId}</h1>;
 };
 
 UserDetails.propTypes = {
-  userId: PropTypes.number.isRequired,
+  match: PropTypes.object,
 };
 
 export default connect()(UserDetails);
