@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { withRouter, Link } from 'react-router-dom';
+import { withRouter, NavLink } from 'react-router-dom';
 import './NavBar.css';
 
 const NavBar = () => {
@@ -9,19 +9,19 @@ const NavBar = () => {
       <div className="container">
         <ul className="navbar-nav mr-auto">
           <li className="nav-item">
-            <Link to="/" className="nav-link">
+            <NavLink to="/" exact className="nav-link">
               Main
-            </Link>
+            </NavLink>
           </li>
           <li className="nav-item">
-            <Link to="/users" className="nav-link">
+            <NavLink to="/users" className="nav-link">
               Users
-            </Link>
+            </NavLink>
           </li>
           <li className="nav-item">
-            <Link to="/posts" className="nav-link">
+            <NavLink to="/posts" className="nav-link">
               Posts
-            </Link>
+            </NavLink>
           </li>
         </ul>
       </div>
