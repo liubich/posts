@@ -19,7 +19,12 @@ const Users = props => {
               </h3>
               <div className="card-body">
                 <h5 className="card-title">{item.phone}</h5>
-                <h6 className="card-subtitle text-muted">{item.email}</h6>
+                <a
+                  href={`mailto:${item.email}`}
+                  className="card-subtitle text-muted"
+                >
+                  {item.email}
+                </a>
               </div>
               <div className="card-body">
                 <Link to={`/user/${item.id}`} className="card-link">
