@@ -25,7 +25,7 @@ export function GetUsers() {
 
 export function GetComments(postId) {
   return function(dispatch) {
-    fetch(`https://jsonplaceholder.typicode.com/posts/${postId}/comments`)
+    fetch(`https://jsonplaceholder.typicode.com/comments?postId=${postId}`)
       .then(response => response.json())
       .then(json => {
         dispatch({ type: actionTypes.SAVE_COMMENTS, commentsData: json });
