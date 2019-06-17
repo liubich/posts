@@ -7,7 +7,8 @@ const PostsComments = props => {
   const postId = parseInt(props.match.params.postId, 10);
   useEffect(() => {
     if (!props.postsData) props.dispatch(actions.GetPosts());
-    if (!props.commentsData) props.dispatch(actions.GetComments(postId));
+    if (!props.commentsData || !props.commentsData[0].postId === postId)
+      props.dispatch(actions.GetComments(postId));
   });
 
   if (props.postsData) {
