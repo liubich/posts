@@ -5,6 +5,7 @@ import MainPage from './MainPage/MainPage';
 import Users from './Users/Users';
 import Posts from './Posts/Posts';
 import NavBar from './NavBar/NavBar';
+import PageNotFound from './PageNotFound/PageNotFound';
 
 const App = () => {
   return (
@@ -16,6 +17,7 @@ const App = () => {
             <Route path="/" exact component={MainPage} />
             <Route path="/users" component={Users} />
             <Route path="/posts" component={Posts} />
+            <Route component={PageNotFound} />
           </Switch>
         </div>
       </Router>
