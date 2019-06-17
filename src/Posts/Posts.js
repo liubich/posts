@@ -21,7 +21,7 @@ const Posts = props => {
                   href={`/post/${item.id}`}
                   role="button"
                 >
-                  Learn more
+                  Comments
                 </a>
               </p>
             </div>
