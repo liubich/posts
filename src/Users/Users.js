@@ -22,7 +22,7 @@ const Users = props => {
                 <h6 className="card-subtitle text-muted">{item.email}</h6>
               </div>
               <div className="card-body">
-                <Link to={`/user/:${item.id}`} className="card-link">
+                <Link to={`/user/${item.id}`} className="card-link">
                   Details
                 </Link>
               </div>
