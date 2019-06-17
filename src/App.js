@@ -3,6 +3,7 @@ import { Route, BrowserRouter as Router, Switch } from 'react-router-dom';
 import { connect } from 'react-redux';
 import MainPage from './MainPage/MainPage';
 import Users from './Users/Users';
+import UsersDetails from './UserDetails/UserDetails';
 import Posts from './Posts/Posts';
 import NavBar from './NavBar/NavBar';
 import PageNotFound from './PageNotFound/PageNotFound';
@@ -15,6 +16,7 @@ const App = () => {
         <div className="container">
           <Switch>
             <Route path="/" exact component={MainPage} />
+            <Route path="/user/:userId" component={UsersDetails} />
             <Route path="/users" component={Users} />
             <Route path="/posts" component={Posts} />
             <Route component={PageNotFound} />
