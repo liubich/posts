@@ -20,6 +20,7 @@ const PostsComments = props => {
           <hr className="my-4" />
           <p className="lead">{postData.body}</p>
         </div>
+        <p className="lead">Comments</p>
         {props.commentsData ? (
           <>
             <table className="table table-hover">
