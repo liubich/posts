@@ -25,6 +25,7 @@ const PostsComments = props => {
             <table className="table table-hover">
               <thead>
                 <tr>
+                  <th scope="col">#</th>
                   <th scope="col">Name</th>
                   <th scope="col">Email</th>
                   <th scope="col">Text</th>
@@ -32,7 +33,8 @@ const PostsComments = props => {
               </thead>
               <tbody>
                 {props.commentsData.map(item => (
-                  <tr className="table-active" key={item.id}>
+                  <tr className="table-light" key={item.id}>
+                    <td>{item.id}</td>
                     <td>{item.name}</td>
                     <td>{item.email}</td>
                     <td>{item.body}</td>
