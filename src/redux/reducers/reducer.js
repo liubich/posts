@@ -6,6 +6,8 @@ export default function reducer(state, action) {
       return { ...state, postsData: action.postsData };
     case actionTypes.SAVE_USERS:
       return { ...state, usersData: action.usersData };
+    case actionTypes.SAVE_COMMENTS:
+      return { ...state, commentsData: action.commentsData };
     default:
       return state;
   }
