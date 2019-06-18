@@ -1,7 +1,7 @@
-import React, { useEffect } from "react";
-import { connect } from "react-redux";
-import PropTypes from "prop-types";
-import * as actions from "../redux/actions/actions";
+import React, { useEffect } from 'react';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+import * as actions from '../redux/actions/actions';
 
 const PostsComments = props => {
   const postId = parseInt(props.match.params.postId, 10);
@@ -12,7 +12,7 @@ const PostsComments = props => {
   });
 
   if (props.postsData) {
-    const postData = props.postsData.filter(a => a.id === postId)[0];
+    const postData = props.postsData.find(a => a.id === postId);
 
     return (
       <>
@@ -57,13 +57,13 @@ PostsComments.propTypes = {
   commentsData: PropTypes.array,
   dispatch: PropTypes.func.isRequired,
   match: PropTypes.object,
-  postsData: PropTypes.array
+  postsData: PropTypes.array,
 };
 
 const mapStateToProps = state => {
   return {
     commentsData: state.commentsData,
-    postsData: state.postsData
+    postsData: state.postsData,
   };
 };
 
