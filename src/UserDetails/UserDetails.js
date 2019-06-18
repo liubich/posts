@@ -68,9 +68,9 @@ UserDetails.propTypes = {
   dispatch: PropTypes.func.isRequired,
 };
 
-const mapStateToProps = state => {
+const mapStateToProps = ({ usersData }) => {
   return {
-    usersData: state.usersData,
+    usersData,
   };
 };
 
