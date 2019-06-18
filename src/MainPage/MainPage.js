@@ -1,7 +1,8 @@
-import React, { useEffect } from 'react';
-import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
-import * as actions from '../redux/actions/actions';
+import React, { useEffect } from "react";
+import { connect } from "react-redux";
+import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
+import * as actions from "../redux/actions/actions";
 
 const MainPage = props => {
   useEffect(() => {
@@ -15,15 +16,10 @@ const MainPage = props => {
               <h1 className="display-5">{item.title}</h1>
               <hr className="my-4" />
               <p className="lead">{item.body}</p>
-              <p className="lead">
-                <a
-                  className="btn btn-primary btn-lg"
-                  href={`/post/${item.id}`}
-                  role="button"
-                >
-                  Comments
-                </a>
-              </p>
+
+              <Link className="card-link" to={`/post/${item.id}`}>
+                Comments
+              </Link>
             </div>
           ))
         : null}
@@ -33,12 +29,12 @@ const MainPage = props => {
 
 MainPage.propTypes = {
   postsData: PropTypes.array,
-  dispatch: PropTypes.func.isRequired,
+  dispatch: PropTypes.func.isRequired
 };
 
 const MapStateToProps = state => {
   return {
-    postsData: state.postsData,
+    postsData: state.postsData
   };
 };
 
