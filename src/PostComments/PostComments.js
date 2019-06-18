@@ -22,7 +22,7 @@ const PostsComments = props => {
           <p className="lead">{postData.body}</p>
         </div>
         <p className="lead">Comments</p>
-        {props.commentsData ? (
+        {props.commentsData && props.commentsData[0].postId === postId ? (
           <>
             <table className="table table-hover">
               <thead>
