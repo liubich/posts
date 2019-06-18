@@ -19,13 +19,13 @@
     "redux-thunk": "^2.3.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.2.2",
-    "babel-preset-nano-react-app": "^0.1.0",
-    "eslint": "^5.16.0",
-    "eslint-plugin-react": "^7.13.0",
-    "parcel-bundler": "^1.11.0",
-    "stylelint": "^10.1.0",
-    "stylelint-config-standard": "^18.3.0"
+    "@babel/core": "7.4.5",
+    "babel-preset-nano-react-app": "0.1.0",
+    "eslint": "5.16.0",
+    "eslint-plugin-react": "7.13.0",
+    "parcel-bundler": "1.12.3",
+    "stylelint": "10.1.0",
+    "stylelint-config-standard": "18.3.0"
   },
   "babel": {
     "presets": [
