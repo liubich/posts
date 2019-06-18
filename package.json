@@ -56,5 +56,6 @@
   "bugs": {
     "url": "https://github.com/liubich/posts/issues"
   },
-  "homepage": "https://posts-react-spa.netlify.com"
+  "homepage": "https://posts-react-spa.netlify.com",
+  "assetsPath": "public"
 }
