@@ -9,7 +9,7 @@ const UserDetails = props => {
   });
   if (props.usersData) {
     const userId = parseInt(props.match.params.userId, 10);
-    const userDetails = props.usersData.filter(a => a.id === userId)[0];
+    const userDetails = props.usersData.find(a => a.id === userId);
 
     return (
       <div className="card mb-3">
