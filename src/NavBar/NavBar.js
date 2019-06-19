@@ -1,7 +1,7 @@
-import React from 'react';
-import { connect } from 'react-redux';
-import { withRouter, NavLink } from 'react-router-dom';
-import './NavBar.css';
+import React from "react";
+import { connect } from "react-redux";
+import { NavLink } from "react-router-dom";
+import "./NavBar.css";
 
 const NavBar = () => {
   return (
@@ -33,4 +33,4 @@ const mapStateToProps = () => {
   return {};
 };
 
-export default withRouter(connect(mapStateToProps)(NavBar));
+export default connect(mapStateToProps)(NavBar);
