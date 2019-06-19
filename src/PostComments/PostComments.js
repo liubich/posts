@@ -1,18 +1,18 @@
-import React, { useEffect } from 'react';
-import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
-import * as actions from '../redux/actions/actions';
+import React, { useEffect } from "react";
+import { connect } from "react-redux";
+import PropTypes from "prop-types";
+import * as actions from "../redux/actions/actions";
 
-const PostsComments = props => {
-  const postId = parseInt(props.match.params.postId, 10);
+const PostsComments = ({ postsData, commentsData, match, dispatch }) => {
+  const postId = parseInt(match.params.postId, 10);
   useEffect(() => {
-    if (!props.postsData) props.dispatch(actions.GetPosts());
-    if (!props.commentsData || props.commentsData[0].postId !== postId)
-      props.dispatch(actions.GetComments(postId));
+    if (!postsData) dispatch(actions.GetPosts());
+    if (!commentsData || commentsData[0].postId !== postId)
+      dispatch(actions.GetComments(postId));
   });
 
-  if (props.postsData) {
-    const postData = props.postsData.find(a => a.id === postId);
+  if (postsData) {
+    const postData = postsData.find(a => a.id === postId);
 
     return (
       <>
@@ -22,7 +22,7 @@ const PostsComments = props => {
           <p className="lead">{postData.body}</p>
         </div>
         <p className="lead">Comments</p>
-        {props.commentsData && props.commentsData[0].postId === postId ? (
+        {commentsData && commentsData[0].postId === postId ? (
           <>
             <table className="table table-hover">
               <thead>
@@ -34,7 +34,7 @@ const PostsComments = props => {
                 </tr>
               </thead>
               <tbody>
-                {props.commentsData.map(item => (
+                {commentsData.map(item => (
                   <tr className="table-light" key={item.id}>
                     <td>{item.id}</td>
                     <td>{item.name}</td>
@@ -57,13 +57,13 @@ PostsComments.propTypes = {
   commentsData: PropTypes.array,
   dispatch: PropTypes.func.isRequired,
   match: PropTypes.object,
-  postsData: PropTypes.array,
+  postsData: PropTypes.array
 };
 
 const mapStateToProps = state => {
   return {
     commentsData: state.commentsData,
-    postsData: state.postsData,
+    postsData: state.postsData
   };
 };
 

@@ -4,14 +4,14 @@ import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import * as actions from "../redux/actions/actions";
 
-const MainPage = props => {
+const MainPage = ({ postsData, dispatch }) => {
   useEffect(() => {
-    if (!props.postsData) props.dispatch(actions.GetPosts());
+    if (!postsData) dispatch(actions.GetPosts());
   });
   return (
     <>
-      {props.postsData
-        ? props.postsData.slice(0, 4).map((item, index) => (
+      {postsData
+        ? postsData.slice(0, 4).map((item, index) => (
             <div className="jumbotron" key={index}>
               <h1 className="display-5">{item.title}</h1>
               <hr className="my-4" />

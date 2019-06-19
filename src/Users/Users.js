@@ -1,17 +1,17 @@
-import React, { useEffect } from 'react';
-import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
-import * as actions from '../redux/actions/actions';
-import { Link } from 'react-router-dom/cjs/react-router-dom';
+import React, { useEffect } from "react";
+import { connect } from "react-redux";
+import PropTypes from "prop-types";
+import * as actions from "../redux/actions/actions";
+import { Link } from "react-router-dom/cjs/react-router-dom";
 
-const Users = props => {
+const Users = ({ usersData, dispatch }) => {
   useEffect(() => {
-    if (!props.usersData) props.dispatch(actions.GetUsers());
+    if (!usersData) dispatch(actions.GetUsers());
   });
   return (
     <>
-      {props.usersData
-        ? props.usersData.map((item, index) => (
+      {usersData
+        ? usersData.map((item, index) => (
             <div className="card mb-3" key={index}>
               <h3 className="card-header">
                 {item.name}
@@ -40,12 +40,12 @@ const Users = props => {
 
 Users.propTypes = {
   dispatch: PropTypes.func,
-  usersData: PropTypes.array,
+  usersData: PropTypes.array
 };
 
 const MapStateToProps = state => {
   return {
-    usersData: state.usersData,
+    usersData: state.usersData
   };
 };
 

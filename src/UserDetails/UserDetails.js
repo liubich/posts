@@ -1,16 +1,15 @@
-import React, { useEffect } from 'react';
-import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
-import * as actions from '../redux/actions/actions';
+import React, { useEffect } from "react";
+import { connect } from "react-redux";
+import PropTypes from "prop-types";
+import * as actions from "../redux/actions/actions";
 
-const UserDetails = props => {
+const UserDetails = ({ usersData, match, dispatch }) => {
   useEffect(() => {
-    if (!props.usersData) props.dispatch(actions.GetUsers());
+    if (!usersData) dispatch(actions.GetUsers());
   });
-  if (props.usersData) {
-    const userId = parseInt(props.match.params.userId, 10);
-    const userDetails = props.usersData.find(a => a.id === userId);
-
+  if (usersData) {
+    const userId = parseInt(match.params.userId, 10);
+    const userDetails = usersData.find(a => a.id === userId);
     return (
       <div className="card mb-3">
         <div className="card bg-light mb-3">
@@ -65,12 +64,12 @@ const UserDetails = props => {
 UserDetails.propTypes = {
   match: PropTypes.object,
   usersData: PropTypes.array,
-  dispatch: PropTypes.func.isRequired,
+  dispatch: PropTypes.func.isRequired
 };
 
 const mapStateToProps = ({ usersData }) => {
   return {
-    usersData,
+    usersData
   };
 };
 
