@@ -17,11 +17,12 @@ const MainPage = ({ postsData, dispatch }) => {
         ? postsData.slice(0, 5).map((item, index) => (
             <div className="jumbotron" key={index}>
               <h6>
+                written by @
                 <Link
                   className="text-monospace text-dark"
                   to={`/user/${item.userId}`}
                 >
-                  written by @{item.authorUsername}
+                  {item.authorUsername}
                 </Link>
               </h6>
               <hr className="my-4" />
