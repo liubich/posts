@@ -6,7 +6,7 @@ import * as actions from "../redux/actions/actions";
 const PostsComments = ({ postsData, commentsData, match, dispatch }) => {
   const postId = parseInt(match.params.postId, 10);
   useEffect(() => {
-    if (!postsData) dispatch(actions.GetPosts());
+    if (!postsData) dispatch(actions.getUsersAndPosts());
     if (!commentsData || commentsData[0].postId !== postId)
       dispatch(actions.GetComments(postId));
   });
@@ -16,7 +16,9 @@ const PostsComments = ({ postsData, commentsData, match, dispatch }) => {
 
     return (
       <>
-      <h2>Post <span className = "badge badge-secondary">#{postId}</span></h2>
+        <h2>
+          Post <span className="badge badge-secondary">#{postId}</span>
+        </h2>
         <div className="jumbotron">
           <h1 className="display-5">{postData.title}</h1>
           <hr className="my-4" />

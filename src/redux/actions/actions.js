@@ -1,41 +1,47 @@
-import * as actionTypes from "./actionTypes";
+import * as actionTypes from './actionTypes';
 
-export function GetPosts() {
-  return function(dispatch, getState) {
-    if (!getState().usersData) dispatch(GetUsers());
-    fetch("https://jsonplaceholder.typicode.com/posts")
-      .then(response => response.json())
-      .then(json => {
-        const postsData = json
-          .slice(-10)
-          .sort((a, b) => a.id < b.id)
-          .map(post => {
-            return {
-              ...post,
-              authorUsername: getState().usersData.find(
-                user => (user.id = post.userId)
-              ).username,
-              authorName: getState().usersData.find(
-                user => (user.id = post.userId)
-              ).name
-            };
-          });
-        dispatch({
-          type: actionTypes.SAVE_POSTS,
-          postsData
-        });
-      });
+export function getUsersAndPosts() {
+  return function(dispatch) {
+    const usersData = getUsers();
+    const postsData = getPosts();
+    // eslint-disable-next-line no-undef
+    Promise.all([usersData, postsData]).then(data =>
+      linkPostsAndUsers(data, dispatch),
+    );
   };
 }
 
-export function GetUsers() {
-  return function(dispatch) {
-    fetch("https://jsonplaceholder.typicode.com/users")
-      .then(response => response.json())
-      .then(usersData => {
-        dispatch({ type: actionTypes.SAVE_USERS, usersData });
-      });
-  };
+export function linkPostsAndUsers(data, dispatch) {
+  let [usersData, postsData] = data;
+  postsData = postsData.map(post => {
+    return {
+      ...post,
+      authorUsername: usersData.find(user => user.id === post.userId).username,
+    };
+  });
+  dispatch({
+    type: actionTypes.SAVE_POSTS,
+    postsData,
+  });
+  usersData = usersData.map(user => {
+    return {
+      ...user,
+      postsCount: postsData.filter(post => post.userId === user.id).length,
+    };
+  });
+  dispatch({ type: actionTypes.SAVE_USERS, usersData });
+}
+
+export function getPosts() {
+  return fetch('https://jsonplaceholder.typicode.com/posts').then(response => {
+    return response.json();
+  });
+}
+
+export function getUsers() {
+  return fetch('https://jsonplaceholder.typicode.com/users').then(response => {
+    return response.json();
+  });
 }
 
 export function GetComments(postId) {

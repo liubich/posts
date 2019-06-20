@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 
 const Users = ({ usersData, dispatch }) => {
   useEffect(() => {
-    if (!usersData) dispatch(actions.GetUsers());
+    if (!usersData) dispatch(actions.getUsersAndPosts());
   });
   return (
     <>

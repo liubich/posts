@@ -6,7 +6,7 @@ import * as actions from "../redux/actions/actions";
 
 const MainPage = ({ postsData, dispatch }) => {
   useEffect(() => {
-    if (!postsData) dispatch(actions.GetPosts());
+    if (!postsData) dispatch(actions.getUsersAndPosts());
   });
   return (
     <>
