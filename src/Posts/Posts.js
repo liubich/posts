@@ -10,14 +10,27 @@ const Posts = ({ postsData, dispatch }) => {
   });
   return (
     <>
-    <h2 className="text-center">Last 10 posts</h2>
+      <h2 className="text-center">Last 10 posts</h2>
       {postsData
         ? postsData.map((item, index) => (
             <div className="jumbotron" key={index}>
-              <h1 className="display-5">{item.title}</h1>
+              <h6>
+                <Link
+                  className="text-monospace text-dark"
+                  to={`/user/${item.userId}`}
+                >
+                  written by @{item.authorUsername}
+                </Link>
+              </h6>
               <hr className="my-4" />
+              <h5>{item.title}</h5>
               <p className="lead">{item.body}</p>
-              <Link className="card-link" to={`/post/${item.id}`}>
+
+              <Link
+                className="btn btn-primary btn-lg"
+                to={`/post/${item.id}`}
+                role="button"
+              >
                 View comments
               </Link>
             </div>
