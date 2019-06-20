@@ -10,10 +10,18 @@ const MainPage = ({ postsData, dispatch }) => {
   });
   return (
     <>
-    <h2 className="text-center"><strong>Last 5 posts</strong></h2>
+      <h2 className="text-center">
+        <strong>Last 5 posts</strong>
+      </h2>
       {postsData
         ? postsData.slice(0, 4).map((item, index) => (
             <div className="jumbotron" key={index}>
+              <Link
+                className="text-monospace text-dark"
+                to={`/user/${item.userId}`}
+              >
+                {item.authorUsername}
+              </Link>
               <h1 className="display-5">{item.title}</h1>
               <hr className="my-4" />
               <p className="lead">{item.body}</p>
