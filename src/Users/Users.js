@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import * as actions from "../redux/actions/actions";
-import { Link } from "react-router-dom/cjs/react-router-dom";
+import { Link } from "react-router-dom";
 
 const Users = ({ usersData, dispatch }) => {
   useEffect(() => {
@@ -10,7 +10,9 @@ const Users = ({ usersData, dispatch }) => {
   });
   return (
     <>
-    <h2 className="text-center"><strong>Active users</strong></h2>
+      <h2 className="text-center">
+        <strong>Active users</strong>
+      </h2>
       {usersData
         ? usersData.map((item, index) => (
             <div className="card mb-3" key={index}>
