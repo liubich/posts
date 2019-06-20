@@ -21,14 +21,18 @@ const MainPage = ({ postsData, dispatch }) => {
                   className="text-monospace text-dark"
                   to={`/user/${item.userId}`}
                 >
-                  {item.authorUsername}
+                  written by @{item.authorUsername}
                 </Link>
               </h6>
-              <h5>{item.title}</h5>
               <hr className="my-4" />
+              <h5>{item.title}</h5>
               <p className="lead">{item.body}</p>
 
-              <Link className="card-link" to={`/post/${item.id}`}>
+              <Link
+                className="btn btn-primary btn-lg"
+                to={`/post/${item.id}`}
+                role="button"
+              >
                 View comments
               </Link>
             </div>
