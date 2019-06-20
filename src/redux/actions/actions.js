@@ -1,8 +1,8 @@
 import * as actionTypes from "./actionTypes";
 
 export function GetPosts() {
-  GetUsers();
   return function(dispatch, getState) {
+    if (!getState().usersData) dispatch(GetUsers());
     fetch("https://jsonplaceholder.typicode.com/posts")
       .then(response => response.json())
       .then(json => {
