@@ -13,10 +13,10 @@ export function GetPosts() {
             return {
               ...post,
               authorUsername: getState().usersData.find(
-                user => (user.userId = post.userId)
+                user => (user.id = post.userId)
               ).username,
               authorName: getState().usersData.find(
-                user => (user.userId = post.userId)
+                user => (user.id = post.userId)
               ).name
             };
           });
