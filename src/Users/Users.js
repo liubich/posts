@@ -10,6 +10,7 @@ const Users = ({ usersData, dispatch }) => {
   });
   return (
     <>
+    <h2 className="text-center"><strong>Active users</strong></h2>
       {usersData
         ? usersData.map((item, index) => (
             <div className="card mb-3" key={index}>
@@ -28,7 +29,7 @@ const Users = ({ usersData, dispatch }) => {
               </div>
               <div className="card-body">
                 <Link to={`/user/${item.id}`} className="card-link">
-                  Details
+                  User details
                 </Link>
               </div>
             </div>

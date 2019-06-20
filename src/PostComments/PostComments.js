@@ -16,6 +16,7 @@ const PostsComments = ({ postsData, commentsData, match, dispatch }) => {
 
     return (
       <>
+      <h2>Post <span className = "badge badge-secondary">#{postId}</span></h2>
         <div className="jumbotron">
           <h1 className="display-5">{postData.title}</h1>
           <hr className="my-4" />

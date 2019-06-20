@@ -11,12 +11,13 @@ const UserDetails = ({ usersData, match, dispatch }) => {
     const userId = parseInt(match.params.userId, 10);
     const userDetails = usersData.find(a => a.id === userId);
     return (
-      <div className="card mb-3">
-        <div className="card bg-light mb-3">
-          <h3 className="card-header">
+      <>
+      <h2 className="text-center">
             {userDetails.name}
             <span className="text-muted"> aka {userDetails.username}</span>
-          </h3>
+          </h2>
+      <div className="card mb-3">
+        <div className="card bg-light mb-3">
           <div className="card-header">Contacts:</div>
           <div className="card-body">
             <h5 className="card-title">{userDetails.phone}</h5>
@@ -57,6 +58,7 @@ const UserDetails = ({ usersData, match, dispatch }) => {
           </div>
         </div>
       </div>
+      </>
     );
   } else return null;
 };

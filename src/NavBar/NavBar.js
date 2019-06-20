@@ -1,11 +1,11 @@
-import React from "react";
-import { connect } from "react-redux";
-import { NavLink } from "react-router-dom";
-import "./NavBar.css";
+import React from 'react';
+import { connect } from 'react-redux';
+import { NavLink } from 'react-router-dom';
+import './NavBar.css';
 
 const NavBar = () => {
   return (
-    <nav className="navbar navbar-expand-lg fixed-top navbar-dark bg-primary">
+    <nav className="navbar navbar-expand fixed-top navbar-dark bg-primary">
       <div className="container">
         <ul className="navbar-nav mr-auto">
           <li className="nav-item">

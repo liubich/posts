@@ -10,6 +10,7 @@ const Posts = ({ postsData, dispatch }) => {
   });
   return (
     <>
+    <h2 className="text-center">Last 10 posts</h2>
       {postsData
         ? postsData.map((item, index) => (
             <div className="jumbotron" key={index}>
@@ -17,7 +18,7 @@ const Posts = ({ postsData, dispatch }) => {
               <hr className="my-4" />
               <p className="lead">{item.body}</p>
               <Link className="card-link" to={`/post/${item.id}`}>
-                Comments
+                View comments
               </Link>
             </div>
           ))
