@@ -1,13 +1,28 @@
-import * as actionTypes from './actionTypes';
+import * as actionTypes from "./actionTypes";
 
 export function GetPosts() {
-  return function(dispatch) {
-    fetch('https://jsonplaceholder.typicode.com/posts')
+  return function(dispatch, getState) {
+    GetUsers();
+    fetch("https://jsonplaceholder.typicode.com/posts")
       .then(response => response.json())
       .then(json => {
+        const postsData = json
+          .slice(-10)
+          .sort((a, b) => a.id < b.id)
+          .map(post => {
+            return {
+              ...post,
+              authorUsername: getState().usersData.find(
+                user => (user.userId = post.userId)
+              ).username,
+              authorName: getState().usersData.find(
+                user => (user.userId = post.userId)
+              ).name
+            };
+          });
         dispatch({
           type: actionTypes.SAVE_POSTS,
-          postsData: json.slice(-10).sort((a, b) => a.id < b.id),
+          postsData
         });
       });
   };
@@ -15,7 +30,7 @@ export function GetPosts() {
 
 export function GetUsers() {
   return function(dispatch) {
-    fetch('https://jsonplaceholder.typicode.com/users')
+    fetch("https://jsonplaceholder.typicode.com/users")
       .then(response => response.json())
       .then(usersData => {
         dispatch({ type: actionTypes.SAVE_USERS, usersData });
