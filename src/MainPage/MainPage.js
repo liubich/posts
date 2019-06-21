@@ -1,8 +1,8 @@
-import React, { useEffect } from "react";
-import { connect } from "react-redux";
-import PropTypes from "prop-types";
-import { Link } from "react-router-dom";
-import * as actions from "../redux/actions/actions";
+import React, { useEffect } from 'react';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
+import * as actions from '../redux/actions/actions';
 
 const MainPage = ({ postsData, dispatch }) => {
   useEffect(() => {
@@ -45,12 +45,12 @@ const MainPage = ({ postsData, dispatch }) => {
 
 MainPage.propTypes = {
   postsData: PropTypes.array,
-  dispatch: PropTypes.func.isRequired
+  dispatch: PropTypes.func.isRequired,
 };
 
 const MapStateToProps = state => {
   return {
-    postsData: state.postsData
+    postsData: state.postsData,
   };
 };
 
