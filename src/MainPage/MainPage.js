@@ -1,13 +1,13 @@
-import React, { useEffect } from 'react';
-import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
-import * as actions from '../redux/actions/actions';
+import React, { useEffect } from "react";
+import { connect } from "react-redux";
+import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
+import * as actions from "../redux/actions/actions";
 
-const MainPage = ({ postsData, dispatch }) => {
+const MainPage = ({ postsData, usersData, dispatch }) => {
   useEffect(() => {
-    if (!postsData) dispatch(actions.getUsersAndPosts());
-  });
+    if (!postsData || !usersData) dispatch(actions.getUsersAndPosts());
+  }, []);
   return (
     <>
       <h2 className="text-center">
@@ -45,12 +45,12 @@ const MainPage = ({ postsData, dispatch }) => {
 
 MainPage.propTypes = {
   postsData: PropTypes.array,
-  dispatch: PropTypes.func.isRequired,
+  dispatch: PropTypes.func.isRequired
 };
 
 const MapStateToProps = state => {
   return {
-    postsData: state.postsData,
+    postsData: state.postsData
   };
 };
 

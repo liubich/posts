@@ -1,13 +1,13 @@
-import React, { useEffect } from 'react';
-import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
-import * as actions from '../redux/actions/actions';
+import React, { useEffect } from "react";
+import { connect } from "react-redux";
+import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
+import * as actions from "../redux/actions/actions";
 
 const Posts = ({ postsData, dispatch }) => {
   useEffect(() => {
-    if (!postsData) dispatch(actions.getUsersAndPosts());
-  });
+    if (!postsData || !usersData) dispatch(actions.getUsersAndPosts());
+  }, []);
   return (
     <>
       <h2 className="text-center">Last 10 posts</h2>
@@ -43,12 +43,12 @@ const Posts = ({ postsData, dispatch }) => {
 
 Posts.propTypes = {
   dispatch: PropTypes.func,
-  postsData: PropTypes.array,
+  postsData: PropTypes.array
 };
 
 const MapStateToProps = state => {
   return {
-    postsData: state.postsData,
+    postsData: state.postsData
   };
 };
 

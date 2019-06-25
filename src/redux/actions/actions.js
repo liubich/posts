@@ -2,11 +2,8 @@ import * as actionTypes from "./actionTypes";
 
 export function getUsersAndPosts() {
   return function(dispatch) {
-    const usersData = getUsers();
-    const postsData = getPosts();
-    Promise.all([usersData, postsData]).then(data =>
-      linkPostsAndUsers(data, dispatch)
-    );
+    getUsers(dispatch);
+    getPosts(dispatch);
   };
 }
 
@@ -31,16 +28,20 @@ export function linkPostsAndUsers(data, dispatch) {
   dispatch({ type: actionTypes.SAVE_USERS, usersData });
 }
 
-export function getPosts() {
-  return fetch("https://jsonplaceholder.typicode.com/posts").then(response => {
-    return response.json();
-  });
+function getPosts(dispatch) {
+  fetch("https://jsonplaceholder.typicode.com/posts").then(response =>
+    response.json().then(postsData => {
+      dispatch({ type: actionTypes.SAVE_POSTS, postsData });
+    })
+  );
 }
 
-export function getUsers() {
-  return fetch("https://jsonplaceholder.typicode.com/users").then(response => {
-    return response.json();
-  });
+function getUsers(dispatch) {
+  fetch("https://jsonplaceholder.typicode.com/users").then(response =>
+    response.json().then(usersData => {
+      dispatch({ type: actionTypes.SAVE_USERS, usersData });
+    })
+  );
 }
 
 export function GetComments(postId) {
