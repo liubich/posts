@@ -1,12 +1,11 @@
-import * as actionTypes from './actionTypes';
+import * as actionTypes from "./actionTypes";
 
 export function getUsersAndPosts() {
   return function(dispatch) {
     const usersData = getUsers();
     const postsData = getPosts();
-    // eslint-disable-next-line no-undef
     Promise.all([usersData, postsData]).then(data =>
-      linkPostsAndUsers(data, dispatch),
+      linkPostsAndUsers(data, dispatch)
     );
   };
 }
@@ -16,30 +15,30 @@ export function linkPostsAndUsers(data, dispatch) {
   postsData = postsData.map(post => {
     return {
       ...post,
-      authorUsername: usersData.find(user => user.id === post.userId).username,
+      authorUsername: usersData.find(user => user.id === post.userId).username
     };
   });
   dispatch({
     type: actionTypes.SAVE_POSTS,
-    postsData,
+    postsData
   });
   usersData = usersData.map(user => {
     return {
       ...user,
-      postsCount: postsData.filter(post => post.userId === user.id).length,
+      postsCount: postsData.filter(post => post.userId === user.id).length
     };
   });
   dispatch({ type: actionTypes.SAVE_USERS, usersData });
 }
 
 export function getPosts() {
-  return fetch('https://jsonplaceholder.typicode.com/posts').then(response => {
+  return fetch("https://jsonplaceholder.typicode.com/posts").then(response => {
     return response.json();
   });
 }
 
 export function getUsers() {
-  return fetch('https://jsonplaceholder.typicode.com/users').then(response => {
+  return fetch("https://jsonplaceholder.typicode.com/users").then(response => {
     return response.json();
   });
 }
