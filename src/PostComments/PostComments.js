@@ -9,7 +9,7 @@ const PostsComments = ({ postsData, commentsData, match, dispatch }) => {
   useEffect(() => {
     if (!postsData) dispatch(actions.getUsersAndPosts());
     if (!commentsData || commentsData[0].postId !== postId)
-      dispatch(actions.GetComments(postId));
+      dispatch(actions.getComments(postId));
   });
 
   if (postsData) {
