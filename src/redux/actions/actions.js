@@ -55,3 +55,9 @@ export function GetComments(postId) {
       });
   };
 }
+
+export function getLastPosts(postsNumber) {
+  return function (dispatch, getState) {
+    return Object.values(getState().postsData).sort((a, b) => a.id < b.id).slice(0, postsNumber).map((post) => { return { ...post, authorUsername: getState().postsData.usersData[post.userId].username } });
+  }
+}
