@@ -1,7 +1,7 @@
-import React, { useEffect } from "react";
-import { connect } from "react-redux";
-import PropTypes from "prop-types";
-import * as actions from "../redux/actions/actions";
+import React, { useEffect } from 'react';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+import * as actions from '../redux/actions/actions';
 
 const UserDetails = ({ usersData, match, dispatch }) => {
   useEffect(() => {
@@ -42,11 +42,11 @@ const UserDetails = ({ usersData, match, dispatch }) => {
               <p className="card-text">
                 {`${userDetails.address.city}, ${
                   userDetails.address.street
-                  } str., ${userDetails.address.suite}`}
+                } str., ${userDetails.address.suite}`}
               </p>
               <p className="card-text">{`zip: ${
                 userDetails.address.zipcode
-                }`}</p>
+              }`}</p>
             </div>
           </div>
           <div className="card bg-light mb-3">
@@ -58,7 +58,7 @@ const UserDetails = ({ usersData, match, dispatch }) => {
               </p>
               <p className="card-text">{`Business: ${
                 userDetails.company.bs
-                }`}</p>
+              }`}</p>
             </div>
           </div>
         </div>
@@ -69,13 +69,13 @@ const UserDetails = ({ usersData, match, dispatch }) => {
 
 UserDetails.propTypes = {
   match: PropTypes.object,
-  usersData: PropTypes.array,
-  dispatch: PropTypes.func.isRequired
+  usersData: PropTypes.object,
+  dispatch: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = ({ usersData }) => {
   return {
-    usersData
+    usersData,
   };
 };
 
