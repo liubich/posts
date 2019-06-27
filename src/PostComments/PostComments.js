@@ -12,7 +12,7 @@ const PostsComments = ({ postsData, commentsData, match, dispatch }) => {
   });
 
   if (postsData) {
-    const postData = postsData.find(a => a.id === postId);
+    const postData = postsData[postId];
 
     return (
       <>
