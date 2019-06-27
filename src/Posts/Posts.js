@@ -45,7 +45,8 @@ const Posts = ({ postsData, usersData, dispatch }) => {
 
 Posts.propTypes = {
   dispatch: PropTypes.func,
-  postsData: PropTypes.array
+  postsData: PropTypes.object,
+  usersData: PropTypes.object
 };
 
 const MapStateToProps = state => {

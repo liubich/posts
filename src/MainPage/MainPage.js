@@ -45,7 +45,8 @@ const MainPage = ({ postsData, usersData, dispatch }) => {
 };
 
 MainPage.propTypes = {
-  postsData: PropTypes.array,
+  postsData: PropTypes.object,
+  usersData: PropTypes.object,
   dispatch: PropTypes.func.isRequired
 };
 
