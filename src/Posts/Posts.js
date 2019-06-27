@@ -51,7 +51,8 @@ Posts.propTypes = {
 
 const MapStateToProps = state => {
   return {
-    postsData: state.postsData
+    postsData: state.postsData,
+    usersData: state.usersData
   };
 };
 
