@@ -1,8 +1,8 @@
-import React, { useEffect } from "react";
-import { connect } from "react-redux";
-import PropTypes from "prop-types";
-import * as actions from "../redux/actions/actions";
-import { Link } from "react-router-dom";
+import React, { useEffect } from 'react';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+import * as actions from '../redux/actions/actions';
+import { Link } from 'react-router-dom';
 
 const Users = ({ usersData, dispatch }) => {
   useEffect(() => {
@@ -15,27 +15,27 @@ const Users = ({ usersData, dispatch }) => {
       </h2>
       {usersData
         ? Object.values(usersData).map((item, index) => (
-          <div className="card mb-3" key={index}>
-            <h3 className="card-header">
-              {item.name}
-              <span className="text-muted"> aka {item.username}</span>
-            </h3>
-            <div className="card-body">
-              <h5 className="card-title">{item.phone}</h5>
-              <a
-                href={`mailto:${item.email}`}
-                className="card-subtitle text-muted"
-              >
-                {item.email}
-              </a>
-            </div>
-            <div className="card-body">
-              <Link to={`/user/${item.id}`} className="card-link">
-                User details
+            <div className="card mb-3" key={index}>
+              <h3 className="card-header">
+                {item.name}
+                <span className="text-muted"> aka {item.username}</span>
+              </h3>
+              <div className="card-body">
+                <h5 className="card-title">{item.phone}</h5>
+                <a
+                  href={`mailto:${item.email}`}
+                  className="card-subtitle text-muted"
+                >
+                  {item.email}
+                </a>
+              </div>
+              <div className="card-body">
+                <Link to={`/user/${item.id}`} className="card-link">
+                  User details
                 </Link>
+              </div>
             </div>
-          </div>
-        ))
+          ))
         : null}
     </>
   );
@@ -43,12 +43,12 @@ const Users = ({ usersData, dispatch }) => {
 
 Users.propTypes = {
   dispatch: PropTypes.func,
-  usersData: PropTypes.array
+  usersData: PropTypes.object,
 };
 
 const MapStateToProps = state => {
   return {
-    usersData: state.usersData
+    usersData: state.usersData,
   };
 };
 
