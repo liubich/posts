@@ -9,7 +9,7 @@ const UserDetails = ({ usersData, match, dispatch }) => {
   });
   if (usersData) {
     const userId = parseInt(match.params.userId, 10);
-    const userDetails = usersData.find(a => a.id === userId);
+    const userDetails = usersData[userId];
     return (
       <>
         <h2 className="text-center">
@@ -42,11 +42,11 @@ const UserDetails = ({ usersData, match, dispatch }) => {
               <p className="card-text">
                 {`${userDetails.address.city}, ${
                   userDetails.address.street
-                } str., ${userDetails.address.suite}`}
+                  } str., ${userDetails.address.suite}`}
               </p>
               <p className="card-text">{`zip: ${
                 userDetails.address.zipcode
-              }`}</p>
+                }`}</p>
             </div>
           </div>
           <div className="card bg-light mb-3">
@@ -58,7 +58,7 @@ const UserDetails = ({ usersData, match, dispatch }) => {
               </p>
               <p className="card-text">{`Business: ${
                 userDetails.company.bs
-              }`}</p>
+                }`}</p>
             </div>
           </div>
         </div>
