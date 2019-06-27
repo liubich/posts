@@ -1,7 +1,7 @@
 import * as actionTypes from "./actionTypes";
 
 export function getUsersAndPosts() {
-  return function(dispatch) {
+  return function (dispatch) {
     getUsers(dispatch);
     getPosts(dispatch);
   };
@@ -31,7 +31,8 @@ export function linkPostsAndUsers(data, dispatch) {
 function getPosts(dispatch) {
   fetch("https://jsonplaceholder.typicode.com/posts").then(response =>
     response.json().then(postsData => {
-      dispatch({ type: actionTypes.SAVE_POSTS, postsData });
+      postsDataObj = postsData.reduce((prevObj, currValue) => { return { ...prevObj, [currValue.id]: currValue } }, {});
+      dispatch({ type: actionTypes.SAVE_POSTS, postsDataObj });
     })
   );
 }
@@ -39,13 +40,14 @@ function getPosts(dispatch) {
 function getUsers(dispatch) {
   fetch("https://jsonplaceholder.typicode.com/users").then(response =>
     response.json().then(usersData => {
-      dispatch({ type: actionTypes.SAVE_USERS, usersData });
+      usersDataObj = usersData.reduce((prevObj, currValue) => { return { ...prevObj, [currValue.id]: currValue } }, {});
+      dispatch({ type: actionTypes.SAVE_USERS, usersDataObj });
     })
   );
 }
 
 export function GetComments(postId) {
-  return function(dispatch) {
+  return function (dispatch) {
     fetch(`https://jsonplaceholder.typicode.com/comments?postId=${postId}`)
       .then(response => response.json())
       .then(commentsData => {
