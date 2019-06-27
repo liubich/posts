@@ -31,7 +31,7 @@ export function linkPostsAndUsers(data, dispatch) {
 function getPosts(dispatch) {
   fetch("https://jsonplaceholder.typicode.com/posts").then(response =>
     response.json().then(postsData => {
-      postsDataObj = postsData.reduce((prevObj, currValue) => { return { ...prevObj, [currValue.id]: currValue } }, {});
+      const postsDataObj = postsData.reduce((prevObj, currValue) => { return { ...prevObj, [currValue.id]: currValue } }, {});
       dispatch({ type: actionTypes.SAVE_POSTS, postsDataObj });
     })
   );
@@ -40,7 +40,7 @@ function getPosts(dispatch) {
 function getUsers(dispatch) {
   fetch("https://jsonplaceholder.typicode.com/users").then(response =>
     response.json().then(usersData => {
-      usersDataObj = usersData.reduce((prevObj, currValue) => { return { ...prevObj, [currValue.id]: currValue } }, {});
+      const usersDataObj = usersData.reduce((prevObj, currValue) => { return { ...prevObj, [currValue.id]: currValue } }, {});
       dispatch({ type: actionTypes.SAVE_USERS, usersDataObj });
     })
   );
