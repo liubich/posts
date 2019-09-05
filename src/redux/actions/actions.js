@@ -1,4 +1,4 @@
-import * as actionTypes from './actionTypes';
+import * as actionTypes from "./actionTypes";
 
 export function getUsersAndPosts() {
   return function(dispatch) {
@@ -8,25 +8,29 @@ export function getUsersAndPosts() {
 }
 
 function getPosts(dispatch) {
-  fetch('https://jsonplaceholder.typicode.com/posts').then(response =>
-    response.json().then(postsData => {
-      const postsDataObj = postsData.reduce((prevObj, currValue) => {
+  fetch("https://jsonplaceholder.typicode.com/posts")
+    .then(response => response.json())
+    .then(postsData => {
+      return postsData.reduce((prevObj, currValue) => {
         return { ...prevObj, [currValue.id]: currValue };
       }, {});
-      dispatch({ type: actionTypes.SAVE_POSTS, postsData: postsDataObj });
-    }),
-  );
+    })
+    .then(postsDataObj =>
+      dispatch({ type: actionTypes.SAVE_POSTS, postsData: postsDataObj }),
+    );
 }
 
 function getUsers(dispatch) {
-  fetch('https://jsonplaceholder.typicode.com/users').then(response =>
-    response.json().then(usersData => {
-      const usersDataObj = usersData.reduce((prevObj, currValue) => {
+  fetch("https://jsonplaceholder.typicode.com/users")
+    .then(response => response.json())
+    .then(usersData => {
+      return usersData.reduce((prevObj, currValue) => {
         return { ...prevObj, [currValue.id]: currValue };
       }, {});
-      dispatch({ type: actionTypes.SAVE_USERS, usersData: usersDataObj });
-    }),
-  );
+    })
+    .then(usersDataObj =>
+      dispatch({ type: actionTypes.SAVE_USERS, usersData: usersDataObj }),
+    );
 }
 
 export function getComments(postId) {
