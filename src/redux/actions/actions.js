@@ -1,5 +1,5 @@
 import * as actionTypes from "./actionTypes";
-import arrayToObjectWithIndex from "./helpers";
+import { arrayToObjectWithIndex } from "./helpers";
 
 export function getUsersAndPosts() {
   return function(dispatch) {
