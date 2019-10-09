@@ -27,31 +27,31 @@ const MainPage = ({ postsData, usersData, dispatch }) => {
       <h2 className="text-center">
         <strong>{`Last ${postsNumber} posts`}</strong>
       </h2>
-      {postsData
+      {postsData && usersData
         ? getLastPosts().map((item, index) => (
-            <div className="jumbotron" key={index}>
-              <h6>
-                written by @
+          <div className="jumbotron" key={index}>
+            <h6>
+              written by @
                 <Link
-                  className="text-monospace text-dark"
-                  to={`/user/${item.userId}`}
-                >
-                  {item.authorUsername}
-                </Link>
-              </h6>
-              <hr className="my-4" />
-              <h5>{item.title}</h5>
-              <p className="lead">{item.body}</p>
-
-              <Link
-                className="btn btn-primary btn-lg"
-                to={`/post/${item.id}`}
-                role="button"
+                className="text-monospace text-dark"
+                to={`/user/${item.userId}`}
               >
-                View comments
+                {item.authorUsername}
               </Link>
-            </div>
-          ))
+            </h6>
+            <hr className="my-4" />
+            <h5>{item.title}</h5>
+            <p className="lead">{item.body}</p>
+
+            <Link
+              className="btn btn-primary btn-lg"
+              to={`/post/${item.id}`}
+              role="button"
+            >
+              View comments
+              </Link>
+          </div>
+        ))
         : null}
     </>
   );
