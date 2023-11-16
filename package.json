@@ -10,7 +10,7 @@
   },
   "license": "MIT",
   "dependencies": {
-    "babel-eslint": "^10.0.1",
+    "@babel/eslint-parser": "^7.11.0",
     "parcel-plugin-asset-copier": "^1.0.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.1",
